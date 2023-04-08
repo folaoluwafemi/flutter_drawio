@@ -1,6 +1,5 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_drawer/src/drawing/drawing_barrel.dart';
 import 'package:nobook/src/features/notes/subfeatures/document_editing/document_editing_barrel.dart';
 import 'package:nobook/src/global/ui/ui_barrel.dart';
 import 'package:nobook/src/utils/utils_barrel.dart';
@@ -34,7 +33,7 @@ class DrawingController extends DocumentEditingController with EquatableMixin {
       case DrawingMode.erase:
         {
           final DrawingMode? lastNonEraseMode = _actionStack.lastWhereOrNull(
-                (element) => element != DrawingMode.erase,
+            (element) => element != DrawingMode.erase,
           );
           if (lastNonEraseMode == null) return sketchMetadata;
           return metadataFor(
@@ -106,9 +105,9 @@ class DrawingController extends DocumentEditingController with EquatableMixin {
   }
 
   void changeDrawingMode(
-      DrawingMode mode, [
-        bool revertToPreviousAction = false,
-      ]) {
+    DrawingMode mode, [
+    bool revertToPreviousAction = false,
+  ]) {
     if (_actionStack.contains(mode)) _actionStack.remove(mode);
     _actionStack.add(mode);
 
@@ -247,10 +246,10 @@ class DrawingController extends DocumentEditingController with EquatableMixin {
   }
 
   Drawings addDeltaToDrawings<T extends Drawing>(
-      DrawingDelta delta,
-      Drawings drawings, {
-        DrawingMetadata? newMetadata,
-      }) {
+    DrawingDelta delta,
+    Drawings drawings, {
+    DrawingMetadata? newMetadata,
+  }) {
     drawings = List.from(drawings);
 
     delta = delta.copyWith(
@@ -280,8 +279,8 @@ class DrawingController extends DocumentEditingController with EquatableMixin {
   }
 
   bool equalsOther(
-      DrawingController controller,
-      ) {
+    DrawingController controller,
+  ) {
     return controller.lineMetadata == lineMetadata &&
         controller.shapeMetadata == shapeMetadata &&
         controller.drawingMode == drawingMode &&
@@ -359,11 +358,11 @@ class DrawingController extends DocumentEditingController with EquatableMixin {
             .map((data) => Drawing.fromMap(data.cast()))
             .toList(),
         lineMetadata:
-        DrawingMetadata.fromMap((map['lineMetadata'] as Map).cast()),
+            DrawingMetadata.fromMap((map['lineMetadata'] as Map).cast()),
         shapeMetadata:
-        DrawingMetadata.fromMap((map['shapeMetadata'] as Map).cast()),
+            DrawingMetadata.fromMap((map['shapeMetadata'] as Map).cast()),
         sketchMetadata:
-        DrawingMetadata.fromMap((map['sketchMetadata'] as Map).cast()),
+            DrawingMetadata.fromMap((map['sketchMetadata'] as Map).cast()),
         shape: Shape.values[map['shape'] as int],
       );
     if (color != null) {
@@ -374,11 +373,11 @@ class DrawingController extends DocumentEditingController with EquatableMixin {
 
   @override
   List<Object?> get props => [
-    shapeMetadata,
-    lineMetadata,
-    sketchMetadata,
-    _drawingMode,
-    _initialized,
-    ..._drawings,
-  ];
+        shapeMetadata,
+        lineMetadata,
+        sketchMetadata,
+        _drawingMode,
+        _initialized,
+        ..._drawings,
+      ];
 }

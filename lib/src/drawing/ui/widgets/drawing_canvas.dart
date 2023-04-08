@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_drawer/src/drawing/drawing_barrel.dart';
-import 'package:flutter_drawer/src/global/ui/ui_barrel.dart';
-import 'package:flutter_drawer/src/rough/widgets/drawing_controller.dart';
+import 'package:nobook/src/global/ui/ui_barrel.dart';
 
 class DrawingCanvas extends StatefulWidget {
   final DrawingController controller;
@@ -18,21 +17,21 @@ class DrawingCanvas extends StatefulWidget {
 }
 
 class _DrawingCanvasState extends State<DrawingCanvas> {
-  late final double drawingBoundsVertical = widget.size.height;
-  late final double drawingBoundsHorizontal = widget.size.width;
+  late final double yDrawingBounds = widget.size.height;
+  late final double xDrawingBounds = widget.size.width;
 
   DrawingController get controller => widget.controller;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: drawingBoundsVertical,
-      width: drawingBoundsHorizontal,
+      height: yDrawingBounds,
+      width: xDrawingBounds,
       child: Stack(
         children: [
           SizedBox(
-            height: drawingBoundsVertical,
-            width: drawingBoundsHorizontal,
+            height: yDrawingBounds,
+            width: xDrawingBounds,
             child: ChangeNotifierBuilder<DrawingController>(
               listenable: controller,
               key: UniqueKey(),
@@ -55,11 +54,6 @@ class _DrawingCanvasState extends State<DrawingCanvas> {
               // if (erasingNotifier.value) return;
               if (controller.drawingMode == DrawingMode.erase) return;
               panEnd(details);
-            },
-            onForcePressStart: (details) {},
-            onForcePressUpdate: (details) {
-              details.pressure;
-              print('force pressure: ${details.pressure}');
             },
             onPanUpdate: panUpdate,
           ),
@@ -115,8 +109,8 @@ class _DrawingCanvasState extends State<DrawingCanvas> {
   }
 
   bool isOutOfBounds(Offset offset) {
-    return (offset.dx < 0 || offset.dx > drawingBoundsHorizontal) ||
-        (offset.dy < 0 || offset.dy > drawingBoundsVertical);
+    return (offset.dx < 0 || offset.dx > xDrawingBounds) ||
+        (offset.dy < 0 || offset.dy > yDrawingBounds);
   }
 
   void panUpdate(DragUpdateDetails details) {
