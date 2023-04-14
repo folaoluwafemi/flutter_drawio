@@ -1,10 +1,9 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:nobook/src/features/notes/subfeatures/document_editing/document_editing_barrel.dart';
-import 'package:nobook/src/global/ui/ui_barrel.dart';
-import 'package:nobook/src/utils/utils_barrel.dart';
+import 'package:flutter_drawer/src/drawing/drawing_barrel.dart';
+import 'package:flutter_drawer/src/utils/utils_barrel.dart';
 
-class DrawingController extends DocumentEditingController with EquatableMixin {
+class DrawingController extends ChangeNotifier with EquatableMixin {
   DrawingController();
 
   late Eraser eraser;
@@ -75,17 +74,17 @@ class DrawingController extends DocumentEditingController with EquatableMixin {
 
     this.lineMetadata = lineMetadata ??
         DrawingMetadata(
-          color: color ?? AppColors.black,
+          color: color ?? Colors.black,
           strokeWidth: 4,
         );
     this.shapeMetadata = shapeMetadata ??
         DrawingMetadata(
-          color: color ?? AppColors.black,
+          color: color ?? Colors.black,
           strokeWidth: 4,
         );
     this.sketchMetadata = sketchMetadata ??
         DrawingMetadata(
-          color: color ?? AppColors.black,
+          color: color ?? Colors.black,
           strokeWidth: 4,
         );
 
@@ -296,7 +295,7 @@ class DrawingController extends DocumentEditingController with EquatableMixin {
     return sketchMetadata.color ??
         shapeMetadata.color ??
         lineMetadata.color ??
-        AppColors.black;
+        Colors.black;
   }
 
   DrawingController copy({

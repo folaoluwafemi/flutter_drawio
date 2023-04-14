@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_drawer/src/drawing/drawing_barrel.dart';
-import 'package:nobook/src/global/ui/ui_barrel.dart';
+import 'package:flutter_drawer/src/global/ui/ui_barrel.dart';
 
 class DrawingCanvas extends StatefulWidget {
   final DrawingController controller;

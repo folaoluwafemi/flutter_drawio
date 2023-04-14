@@ -32,7 +32,7 @@ class DrawingMetadata with EquatableMixin {
 
   Map<String, dynamic> toMap() {
     return {
-      'color': (color ?? AppColors.black).toSerializerString,
+      'color': (color ?? Colors.black).toSerializerString,
       'strokeWidth': strokeWidth,
     };
   }

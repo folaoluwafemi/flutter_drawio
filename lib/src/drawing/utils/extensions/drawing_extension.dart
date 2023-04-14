@@ -1,9 +1,8 @@
-import 'dart:convert';
 import 'dart:math' as math;
 import 'dart:ui';
 
 import 'package:flutter_drawer/src/drawing/drawing_barrel.dart';
-import 'package:nobook/src/utils/utils_barrel.dart';
+import 'package:flutter_drawer/src/utils/utils_barrel.dart';
 
 extension DrawingsExentension on Drawings {
   bool containsDrawingAt(PointDouble pointDelta) {
@@ -15,18 +14,6 @@ extension DrawingsExentension on Drawings {
       }
     }
     return false;
-  }
-}
-
-extension NoteDocumentExtension on NoteDocument {
-  String toJson() {
-    return jsonEncode(toSerializerList());
-  }
-
-  List<Map<String, dynamic>> toSerializerList() {
-    return map<Map<String, dynamic>>(
-      (e) => e.toDataMap(),
-    ).toList();
   }
 }
 

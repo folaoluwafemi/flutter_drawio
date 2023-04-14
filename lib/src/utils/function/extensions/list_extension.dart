@@ -93,9 +93,9 @@ extension ListExtension<E> on List<E> {
   }
 
   E? lastWhereOrNull(
-      bool Function(E element) test, {
-        E Function()? orElse,
-      }) {
+    bool Function(E element) test, {
+    E Function()? orElse,
+  }) {
     try {
       return lastWhere(test, orElse: orElse);
     } catch (e) {

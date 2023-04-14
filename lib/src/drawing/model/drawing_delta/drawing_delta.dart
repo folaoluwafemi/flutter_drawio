@@ -1,9 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_drawer/src/drawing/utils/drawing_utils_barrel.dart';
-import 'package:nobook/src/utils/utils_barrel.dart';
-
-import 'package:nobook/src/global/ui/ui_barrel.dart';
+import 'package:flutter_drawer/src/drawing/drawing_barrel.dart';
+import 'package:flutter_drawer/src/utils/utils_barrel.dart';
 
 part 'actionable/drawing_operation.dart';
 

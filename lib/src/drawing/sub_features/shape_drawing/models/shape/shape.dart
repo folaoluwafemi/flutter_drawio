@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nobook/src/utils/utils_barrel.dart';
+import 'package:flutter_drawer/src/utils/utils_barrel.dart';
 
 enum Shape {
   rectangle(Icons.rectangle_outlined, VectorAssets.rectangleIcon),

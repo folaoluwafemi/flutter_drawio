@@ -1,8 +1,6 @@
-import 'dart:ui';
-
-import 'package:nobook/src/features/features_barrel.dart';
-import 'package:nobook/src/global/ui/ui_barrel.dart';
-import 'package:nobook/src/utils/utils_barrel.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_drawer/src/drawing/drawing_barrel.dart';
+import 'package:flutter_drawer/src/utils/utils_barrel.dart';
 
 class ShapePainter extends DrawingPainter<ShapeDrawing> {
   const ShapePainter();
@@ -14,7 +12,7 @@ class ShapePainter extends DrawingPainter<ShapeDrawing> {
     ShapeDrawing drawing,
   ) {
     final Paint paint = Paint()
-      ..color = drawing.metadata?.color ?? AppColors.black
+      ..color = drawing.metadata?.color ?? Colors.black
       ..strokeWidth = drawing.metadata?.strokeWidth ?? 4
       ..style = PaintingStyle.stroke;
 
