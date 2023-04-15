@@ -11,29 +11,67 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+# flutter_drawer
+
+A flutter package for drawing on a canvas with an api provided for serialization and deserialization of the drawn data.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+- Sketch scribbles
+- Draw shapes (rectangle, circle, triangle, star)
+- erasing
+- supports erase by area or drawing
+- serialization and deserialization of drawn data
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+Add it to your pubspec.yaml file under dependencies like so:
+
+```yaml
+dependencies:
+  flutter_drawer: ^0.0.1+1
+```
+
+or use commandline
+
+```bash
+flutter pub add flutter_drawer
+```
+
+then import it in your dart file
+
+```dart
+import 'package:flutter_drawer/flutter_drawer.dart';
+```
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
 ```dart
-const like = 'sample';
+final DrawingController controller = DrawingController();
+
+@override
+void dispose() {
+  //don't forget to dispose the controller
+  controller.dispose();
+  super.dispose();
+}
+
+@override
+Widget build(BuildContext context) {
+  return Scaffold(
+    body: DrawingCanvas(
+        //required param
+      size: Size( 
+        MediaQuery.of(context).size.width * 0.9,
+        MediaQuery.of(context).size.height * 0.9,
+      ),
+      controller: controller,
+    ),
+  );
+}
 ```
 
 ## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+To create issues, prs or otherwise contribute in anyway see [contribution guide](https://github.com/folaoluwafemi/flutter_drawer/blob/main/CONTRIBUTION_GUIDE.md).
+See our roadmap [here](https://github.com/folaoluwafemi/flutter_drawer/blob/main/ROADMAP.md)

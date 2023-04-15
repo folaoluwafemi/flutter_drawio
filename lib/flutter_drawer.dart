@@ -1,5 +1,7 @@
 library flutter_drawer;
 
+export 'package:flutter_drawer/src/utils/utils_barrel.dart' show Drawings;
+
 export 'src/drawing/drawing_barrel.dart'
     show
         Drawing,
@@ -7,4 +9,14 @@ export 'src/drawing/drawing_barrel.dart'
         DrawingPainter,
         ShapeDrawing,
         SketchDrawing,
+        DrawingMode,
+        Shape,
+        DrawingDelta,
+        DrawingMetadata,
+        DrawingType,
+        Eraser,
+        EraseMode,
+        Region,
+        DrawingOperation,
+        DrawingsPainter,
         DrawingCanvas;
