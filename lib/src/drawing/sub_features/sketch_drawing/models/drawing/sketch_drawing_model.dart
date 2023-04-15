@@ -1,4 +1,4 @@
-import 'package:flutter_drawer/src/drawing/drawing_barrel.dart';
+import 'package:drawer/src/drawing/drawing_barrel.dart';
 
 class SketchDrawing extends Drawing {
   SketchDrawing({

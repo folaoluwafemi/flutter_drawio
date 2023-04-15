@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter_drawer/src/drawing/drawing_barrel.dart';
-import 'package:flutter_drawer/src/utils/utils_barrel.dart';
+import 'package:drawer/src/drawing/drawing_barrel.dart';
+import 'package:drawer/src/utils/utils_barrel.dart';
 
 part 'actionables/drawing_mode.dart';
 

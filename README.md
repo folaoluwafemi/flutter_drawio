@@ -41,7 +41,7 @@ flutter pub add flutter_drawer
 then import it in your dart file
 
 ```dart
-import 'package:flutter_drawer/flutter_drawer.dart';
+import 'package:drawer/drawer.dart';
 ```
 
 ## Usage
@@ -73,5 +73,5 @@ Widget build(BuildContext context) {
 
 ## Additional information
 
-To create issues, prs or otherwise contribute in anyway see [contribution guide](https://github.com/folaoluwafemi/flutter_drawer/blob/main/CONTRIBUTION_GUIDE.md).
-See our roadmap [here](https://github.com/folaoluwafemi/flutter_drawer/blob/main/ROADMAP.md)
+To create issues, prs or otherwise contribute in anyway see [contribution guide](https://github.com/folaoluwafemi/drawer/blob/main/CONTRIBUTION_GUIDE.md).
+See our roadmap [here](https://github.com/folaoluwafemi/drawer/blob/main/ROADMAP.md)
