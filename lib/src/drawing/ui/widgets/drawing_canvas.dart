@@ -50,8 +50,6 @@ class _DrawingCanvasState extends State<DrawingCanvas> {
           GestureDetector(
             onPanStart: panStart,
             onPanEnd: (details) {
-              details.velocity.pixelsPerSecond;
-              // if (erasingNotifier.value) return;
               if (controller.drawingMode == DrawingMode.erase) return;
               panEnd(details);
             },
