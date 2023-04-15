@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:drawer/src/drawing/drawing_barrel.dart';
-import 'package:drawer/src/utils/utils_barrel.dart';
+import 'package:flutter_drawio/src/drawing/drawing_barrel.dart';
+import 'package:flutter_drawio/src/utils/utils_barrel.dart';
 
 class DrawingController extends ChangeNotifier with EquatableMixin {
   DrawingController();

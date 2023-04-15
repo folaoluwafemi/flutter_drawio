@@ -1,6 +1,6 @@
-library drawer;
+library flutter_drawio;
 
-export 'package:drawer/src/utils/utils_barrel.dart' show Drawings;
+export 'package:flutter_drawio/src/utils/utils_barrel.dart' show Drawings;
 
 export 'src/drawing/drawing_barrel.dart'
     show

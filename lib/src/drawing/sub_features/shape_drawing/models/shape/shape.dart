@@ -1,4 +1,4 @@
-import 'package:drawer/src/utils/utils_barrel.dart';
+import 'package:flutter_drawio/src/utils/utils_barrel.dart';
 
 enum Shape {
   rectangle(VectorAssets.rectangleIcon),

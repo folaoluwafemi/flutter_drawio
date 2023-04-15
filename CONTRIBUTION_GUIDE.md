@@ -21,7 +21,7 @@
 
 ### Roadmap
 
-If you wish to contribute to the roadmap, fork this [repo](https://github.com/folaoluwafemi/drawer)
+If you wish to contribute to the roadmap, fork this [repo](https://github.com/folaoluwafemi/flutter_drawio)
 at branch ```{ROADMAP-TAG}``` if the branch does not exist, feel free to create one in your fork.
 
 ## Code conventions

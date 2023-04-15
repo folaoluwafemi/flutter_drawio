@@ -1,9 +1,8 @@
 import 'dart:math' as math;
 
+import 'package:flutter_drawio/src/drawing/drawing_barrel.dart';
+import 'package:flutter_drawio/src/utils/utils_barrel.dart';
 import 'package:flutter/material.dart';
-import 'package:drawer/src/drawing/drawing_barrel.dart';
-import 'package:drawer/src/utils/utils_barrel.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 part 'drawing_extension.dart';
 

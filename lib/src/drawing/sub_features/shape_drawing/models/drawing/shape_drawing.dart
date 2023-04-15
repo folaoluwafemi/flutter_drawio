@@ -1,6 +1,6 @@
-import 'package:drawer/src/drawing/drawing_barrel.dart'
+import 'package:flutter_drawio/src/drawing/drawing_barrel.dart'
     show Drawing, DrawingDelta, DrawingMetadata, Shape;
-import 'package:drawer/src/drawing/model/drawing_model_barrel.dart';
+import 'package:flutter_drawio/src/drawing/model/drawing_model_barrel.dart';
 
 class ShapeDrawing extends Drawing {
   final Shape shape;

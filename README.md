@@ -11,7 +11,7 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
-# drawer
+# flutter_drawio
 
 A flutter package for drawing on a canvas with an api provided for serialization and deserialization of the drawn data.
 
@@ -29,19 +29,19 @@ Add it to your pubspec.yaml file under dependencies like so:
 
 ```yaml
 dependencies:
-  drawer: ^0.0.1+1
+  flutter_drawio: ^0.0.1
 ```
 
 or use commandline
 
 ```bash
-flutter pub add drawer
+flutter pub add flutter_drawio
 ```
 
 then import it in your dart file
 
 ```dart
-import 'package:drawer/drawer.dart';
+import 'package:flutter_drawio/flutter_drawio.dart';
 ```
 
 ## Usage
@@ -73,5 +73,5 @@ Widget build(BuildContext context) {
 
 ## Additional information
 
-To create issues, prs or otherwise contribute in anyway see [contribution guide](https://github.com/folaoluwafemi/drawer/blob/main/CONTRIBUTION_GUIDE.md).
-See our roadmap [here](https://github.com/folaoluwafemi/drawer/blob/main/ROADMAP.md)
+To create issues, prs or otherwise contribute in anyway see [contribution guide](https://github.com/folaoluwafemi/flutter_drawio/blob/main/CONTRIBUTION_GUIDE.md).
+See our roadmap [here](https://github.com/folaoluwafemi/flutter_drawio/blob/main/ROADMAP.md)

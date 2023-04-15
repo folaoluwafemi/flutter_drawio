@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:drawer/drawer.dart';
+import 'package:flutter_drawio/flutter_drawio.dart';
 
 void main() {
   runApp(const ExampleApp());

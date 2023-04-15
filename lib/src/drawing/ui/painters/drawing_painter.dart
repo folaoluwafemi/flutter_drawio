@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:drawer/src/drawing/drawing_barrel.dart';
+import 'package:flutter_drawio/src/drawing/drawing_barrel.dart';
 
 class DrawingsPainter extends CustomPainter {
   final List<Drawing> drawings;

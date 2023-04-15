@@ -1,6 +1,6 @@
-# Drawer Roadmap
+# flutter_drawio Roadmap
 
-This document outlines the roadmap for the Drawer package.
+This document outlines the roadmap for the flutter_drawio package.
 
 ## TODOs
 

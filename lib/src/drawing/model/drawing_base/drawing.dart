@@ -1,5 +1,5 @@
-import 'package:drawer/src/drawing/drawing_barrel.dart';
-import 'package:drawer/src/utils/utils_barrel.dart';
+import 'package:flutter_drawio/src/drawing/drawing_barrel.dart';
+import 'package:flutter_drawio/src/utils/utils_barrel.dart';
 import 'package:equatable/equatable.dart';
 
 part 'actionables/drawing_mode.dart';
