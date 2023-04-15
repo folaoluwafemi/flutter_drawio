@@ -23,6 +23,10 @@ A flutter package for drawing on a canvas with an api provided for serialization
 - supports erase by area or drawing
 - serialization and deserialization of drawn data
 
+
+https://user-images.githubusercontent.com/89414401/232181623-b4e9f934-e8fd-4fe5-889b-30c589c6b4f6.mov
+
+
 ## Getting started
 
 Add it to your pubspec.yaml file under dependencies like so:
