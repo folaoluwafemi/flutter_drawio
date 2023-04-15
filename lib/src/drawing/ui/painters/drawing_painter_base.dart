@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_drawio/src/drawing/drawing_barrel.dart';
 
+/// This is the base class for all [DrawingPainter]s.
+///
+/// if you wish to add a painter to the [DrawingsPainter] you must extend this class.
 abstract class DrawingPainter<T extends Drawing> {
   const DrawingPainter();
 

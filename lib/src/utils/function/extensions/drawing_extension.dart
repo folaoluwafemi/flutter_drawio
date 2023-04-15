@@ -28,26 +28,5 @@ extension PointDoubleExtension on PointDouble {
   }
 }
 
-extension SizeExtension on Size {
-  double get magnitude {
-    return math.sqrt((height * height) + (width * width));
-  }
-}
 
-extension OffsetExtension on Offset {
-  Offset copyWith({
-    double? dx,
-    double? dy,
-  }) {
-    return Offset(
-      dx ?? this.dx,
-      dy ?? this.dy,
-    );
-  }
 
-  PointDouble get point => PointDouble(dx, dy);
-}
-
-extension ColorExtension on Color {
-  String get toSerializerString => value.toString().removeAll('#');
-}

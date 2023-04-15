@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_drawio/src/drawing/drawing_barrel.dart';
 
+/// This class is holds the methods used to paint a [SketchDrawing] on a canvas.
 class DrawingsPainter extends CustomPainter {
   final List<Drawing> drawings;
   final DrawingPainter<ShapeDrawing> shapeDrawingPainter;

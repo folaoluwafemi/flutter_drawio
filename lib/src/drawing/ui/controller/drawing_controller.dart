@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_drawio/src/drawing/drawing_barrel.dart';
 import 'package:flutter_drawio/src/utils/utils_barrel.dart';
 
+/// This is the brain class of the package and is responsible for managing the state of the drawing process.
 class DrawingController extends ChangeNotifier with EquatableMixin {
   DrawingController();
 
@@ -54,6 +55,9 @@ class DrawingController extends ChangeNotifier with EquatableMixin {
 
   bool get initialized => _initialized;
 
+  /// This method is used to initialize the controller with the required parameters.
+  ///
+  /// It can/must be called only once.
   void initialize({
     Color? color,
     Eraser? eraser,
