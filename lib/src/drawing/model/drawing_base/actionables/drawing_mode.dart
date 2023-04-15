@@ -1,5 +1,6 @@
 part of '../drawing.dart';
 
+/// This defines the drawing mode of the [DrawingController].
 enum DrawingMode {
   erase,
   sketch,

@@ -1,19 +1,7 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
-
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
-
 # flutter_drawio
 
-A flutter package for drawing on a canvas with an api provided for serialization and deserialization of the drawn data.
+A flutter package for drawing on a canvas with an api provided for serialization and deserialization
+of the drawn data.
 
 ## Features
 
@@ -23,9 +11,7 @@ A flutter package for drawing on a canvas with an api provided for serialization
 - supports erase by area or drawing
 - serialization and deserialization of drawn data
 
-
-https://user-images.githubusercontent.com/89414401/232181623-b4e9f934-e8fd-4fe5-889b-30c589c6b4f6.mov
-
+[video example here](https://user-images.githubusercontent.com/89414401/232181623-b4e9f934-e8fd-4fe5-889b-30c589c6b4f6.mov)
 
 ## Getting started
 
@@ -51,6 +37,7 @@ import 'package:flutter_drawio/flutter_drawio.dart';
 ## Usage
 
 ```dart
+
 final DrawingController controller = DrawingController();
 
 @override
@@ -64,10 +51,16 @@ void dispose() {
 Widget build(BuildContext context) {
   return Scaffold(
     body: DrawingCanvas(
-        //required param
-      size: Size( 
-        MediaQuery.of(context).size.width * 0.9,
-        MediaQuery.of(context).size.height * 0.9,
+      //required param
+      size: Size(
+        MediaQuery
+            .of(context)
+            .size
+            .width * 0.9,
+        MediaQuery
+            .of(context)
+            .size
+            .height * 0.9,
       ),
       controller: controller,
     ),
@@ -77,5 +70,7 @@ Widget build(BuildContext context) {
 
 ## Additional information
 
-To create issues, prs or otherwise contribute in anyway see [contribution guide](https://github.com/folaoluwafemi/flutter_drawio/blob/main/CONTRIBUTION_GUIDE.md).
+To create issues, prs or otherwise contribute in anyway
+see [contribution guide](https://github.com/folaoluwafemi/flutter_drawio/blob/main/CONTRIBUTION_GUIDE.md)
+.
 See our roadmap [here](https://github.com/folaoluwafemi/flutter_drawio/blob/main/ROADMAP.md)
