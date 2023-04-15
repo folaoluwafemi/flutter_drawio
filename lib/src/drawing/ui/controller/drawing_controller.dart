@@ -242,7 +242,7 @@ class DrawingController extends ChangeNotifier with EquatableMixin {
     switch (delta.operation) {
       case DrawingOperation.start:
         drawings.add(
-          Drawing.drawingType<T>(
+          Drawing.convertDeltasToDrawing<T>(
             deltas: [delta],
             metadata: delta.metadata,
             shape: shape,

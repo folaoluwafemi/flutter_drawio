@@ -6,6 +6,9 @@ part 'actionable/drawing_operation.dart';
 
 part 'drawing_metadata.dart';
 
+/// This class is used to represent a single drawing operation.
+///
+/// it is a fundamental component of a [Drawing] object.
 class DrawingDelta with EquatableMixin {
   final PointDouble point;
   final DrawingOperation operation;

@@ -1,5 +1,6 @@
 import 'package:flutter_drawio/src/utils/utils_barrel.dart';
 
+/// This holds the currently supported shape drawing types.
 enum Shape {
   rectangle(VectorAssets.rectangleIcon),
   circle(VectorAssets.circleIcon),

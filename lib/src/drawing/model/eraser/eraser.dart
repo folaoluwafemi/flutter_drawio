@@ -7,6 +7,8 @@ part 'erase_mode.dart';
 
 part 'region.dart';
 
+/// This class carries data and methods/logic for erasing a drawing.
+///
 class Eraser {
   final Region region;
   final EraseMode mode;
@@ -26,6 +28,7 @@ class Eraser {
     );
   }
 
+  /// a pure function that splits a list of [DrawingDelta]s into a list of two or more separate [Drawing]s by the [region] of the [Eraser] combined appropriately with the [defaultMetadata].
   List<Drawing> splitDrawingDeltaToDrawings<T extends Drawing>(
     final Type drawingType,
     List<DrawingDelta> deltas, [
@@ -41,11 +44,8 @@ class Eraser {
         Drawing? drawing;
         switch (drawingType) {
           case ShapeDrawing:
-            // drawing = ShapeDrawing(
-            //
-            //   deltas: [delta],
-            //   metadata: defaultMetadata ?? delta.metadata,
-            // );
+
+            /// Shapes cannot be erased by area
             break;
           case SketchDrawing:
             drawing = SketchDrawing(
@@ -68,6 +68,7 @@ class Eraser {
     return drawings;
   }
 
+  /// This is a pure function that removes a point delta from a list of [Drawing]s
   Drawings eraseDrawingAtSpecific(PointDouble point, Drawings drawings) {
     drawings = List.from(drawings);
 
@@ -79,7 +80,7 @@ class Eraser {
     return drawings;
   }
 
-  bool shapeDrawingEraseTest(ShapeDrawing shape, Region region) {
+  bool _shapeDrawingEraseTest(ShapeDrawing shape, Region region) {
     if (shape.deltas.length <= 1) return true;
     final PointDouble firstPoint = shape.deltas.first.point;
     final PointDouble secondPoint = shape.deltas.last.point;
@@ -92,6 +93,7 @@ class Eraser {
         rect.contains(region.minPoint.toOffset);
   }
 
+  /// This is a pure function that removes a drawing from a list of [Drawing]s
   Drawings eraseDrawingFrom(Drawings drawings) {
     final Region region = this.region;
     drawings = List.from(drawings);
@@ -99,7 +101,7 @@ class Eraser {
     drawings.removeWhere(
       (drawing) {
         if (drawing is ShapeDrawing) {
-          return shapeDrawingEraseTest(drawing, region);
+          return _shapeDrawingEraseTest(drawing, region);
         }
 
         return drawing.deltas.containsWhere(
@@ -111,6 +113,7 @@ class Eraser {
     return drawings;
   }
 
+  /// This is a pure function that removes the area in [region] from [drawings]
   Drawings eraseAreaFrom(Drawings drawings) {
     final Region region = this.region;
 
@@ -129,7 +132,7 @@ class Eraser {
     if (drawingToBeErased == null) return drawings;
 
     if (drawingToBeErased is ShapeDrawing) {
-      return eraseAreaFromShape(drawings, drawingToBeErased, region);
+      return eraseShapeIfInRegion(drawings, drawingToBeErased, region);
     }
 
     final Drawing drawingTobeErasedCopy = drawingToBeErased;
@@ -178,14 +181,15 @@ class Eraser {
     return drawings;
   }
 
-  Drawings eraseAreaFromShape(
+  /// This is a pure function that removes a shape from a list of [Drawing]s if it's exists within [region]
+  Drawings eraseShapeIfInRegion(
     Drawings drawings,
     ShapeDrawing drawingTobeErased,
     Region eraseRegion,
   ) {
     return drawings
       ..removeWhere(
-        (element) => shapeDrawingEraseTest(drawingTobeErased, eraseRegion),
+        (element) => _shapeDrawingEraseTest(drawingTobeErased, eraseRegion),
       );
   }
 

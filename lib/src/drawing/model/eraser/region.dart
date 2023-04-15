@@ -1,5 +1,6 @@
 part of 'eraser.dart';
 
+/// This defines the offset of the active erase area in an eraser's path.
 class Region {
   final PointDouble centre;
   final double radius;

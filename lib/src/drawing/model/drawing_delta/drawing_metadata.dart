@@ -1,5 +1,6 @@
 part of 'drawing_delta.dart';
 
+/// This defines the styling data for any drawing.
 class DrawingMetadata with EquatableMixin {
   final Color? color;
   final double? strokeWidth;

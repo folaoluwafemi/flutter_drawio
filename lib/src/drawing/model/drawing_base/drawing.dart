@@ -1,11 +1,12 @@
+import 'package:equatable/equatable.dart';
 import 'package:flutter_drawio/src/drawing/drawing_barrel.dart';
 import 'package:flutter_drawio/src/utils/utils_barrel.dart';
-import 'package:equatable/equatable.dart';
 
 part 'actionables/drawing_mode.dart';
 
 part 'drawing_type.dart';
 
+/// This is the base class for all [Drawing] objects.
 abstract class Drawing with EquatableMixin {
   final List<DrawingDelta> deltas;
   final DrawingMetadata? metadata;
@@ -15,12 +16,14 @@ abstract class Drawing with EquatableMixin {
     this.metadata,
   });
 
+  /// This method is used to create a copy of the current [Drawing] object
   Drawing copyWith({
     List<DrawingDelta>? deltas,
     DrawingMetadata? metadata,
   });
 
-  static Drawing drawingType<T extends Drawing>({
+  /// This function is used to convert a list of [DrawingDelta]s and a [DrawingMetadata]to a [Drawing]
+  static Drawing convertDeltasToDrawing<T extends Drawing>({
     required List<DrawingDelta> deltas,
     required DrawingMetadata? metadata,
     Shape? shape,
@@ -54,6 +57,7 @@ abstract class Drawing with EquatableMixin {
 
   Map<String, dynamic> toMap();
 
+  /// This method is used to create a new instance of this class from a map
   factory Drawing.fromMap(Map<String, dynamic> map) {
     final DrawingType type =
         DrawingType.values[int.parse(map['type'].toString())];
