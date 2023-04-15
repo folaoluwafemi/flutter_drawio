@@ -6,4 +6,3 @@ export 'package:flutter_drawer/src/drawing/ui/controller/drawing_controller.dart
 export 'package:flutter_drawer/src/drawing/ui/painters/drawing_painter.dart';
 export 'package:flutter_drawer/src/drawing/ui/painters/drawing_painter_base.dart';
 export 'package:flutter_drawer/src/drawing/ui/widgets/drawing_canvas.dart';
-export 'package:flutter_drawer/src/drawing/utils/drawing_utils_barrel.dart';

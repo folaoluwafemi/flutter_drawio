@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_drawer/src/drawing/drawing_barrel.dart';
+import 'package:flutter_drawer/src/utils/utils_barrel.dart';
 
 abstract class UtilFunctions {
   static bool listEqual(List list1, List list2) {

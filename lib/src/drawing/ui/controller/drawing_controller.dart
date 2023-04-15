@@ -54,7 +54,6 @@ class DrawingController extends ChangeNotifier with EquatableMixin {
 
   bool get initialized => _initialized;
 
-  @override
   void initialize({
     Color? color,
     Eraser? eraser,
@@ -65,8 +64,6 @@ class DrawingController extends ChangeNotifier with EquatableMixin {
     Shape? shape,
     Drawings? drawings,
   }) {
-    //TODO: initializeValues from cache/storage
-
     if (_initialized) return;
     _drawings = drawings ?? _drawings;
 
@@ -112,18 +109,15 @@ class DrawingController extends ChangeNotifier with EquatableMixin {
 
     drawingMode = _actionStack.lastOrNull ?? mode;
     notifyListeners();
-    notifyOfSignificantUpdate();
   }
 
   void changeShape(Shape newShape) {
     if (shape == newShape) return;
     shape = newShape;
     notifyListeners();
-    notifyOfSignificantUpdate();
   }
 
   void toggleErase() {
-    //TODO: use action stack
     if (drawingMode == DrawingMode.erase) {
       changeDrawingMode(DrawingMode.sketch, true);
     } else {
@@ -136,15 +130,13 @@ class DrawingController extends ChangeNotifier with EquatableMixin {
     shapeMetadata = shapeMetadata.copyWith(color: color);
     lineMetadata = lineMetadata.copyWith(color: color);
 
-    // notifyListeners();
-    notifyOfSignificantUpdate();
+    notifyListeners();
   }
 
   void changeEraseMode(EraseMode mode) {
     if (eraser.mode == mode) return;
     eraser = eraser.copyWith(mode: mode);
     notifyListeners();
-    notifyOfSignificantUpdate();
   }
 
   void changeDrawings(Drawings drawings) {
@@ -158,9 +150,7 @@ class DrawingController extends ChangeNotifier with EquatableMixin {
   void draw(DrawingDelta delta) {
     Drawings drawings = List.from(_drawings);
 
-    if (delta.operation == DrawingOperation.end) {
-      notifyOfSignificantUpdate();
-    }
+    if (delta.operation == DrawingOperation.end) {}
     switch (drawingMode) {
       case DrawingMode.erase:
         eraser = eraser.copyWith(
@@ -182,17 +172,12 @@ class DrawingController extends ChangeNotifier with EquatableMixin {
     changeDrawings(drawings);
   }
 
-  void notifyOfSignificantUpdate() {
-    // significantUpdateNotifier.value = this;
-  }
-
   void clearDrawings() {
     if (_actionStack.lastOrNull == DrawingMode.erase) _actionStack.removeLast();
-    //TODO: use action stack
     changeDrawingMode(_actionStack.lastOrNull ?? DrawingMode.sketch);
-    //TODO: confirm or modify
+
     changeDrawings([]);
-    notifyOfSignificantUpdate();
+
     notifyListeners();
   }
 
@@ -223,9 +208,8 @@ class DrawingController extends ChangeNotifier with EquatableMixin {
   }
 
   Drawings _drawLine(DrawingDelta delta, Drawings drawings) {
-    //TODO: implement _drawLine
-    final Drawings drawnDrawings = addDeltaToDrawings(delta, drawings);
-    return drawnDrawings;
+    // TODO: implement _drawLine
+    throw UnimplementedError();
   }
 
   Drawings _drawShape(DrawingDelta delta, Drawings drawings) {
@@ -291,7 +275,6 @@ class DrawingController extends ChangeNotifier with EquatableMixin {
   }
 
   Color get color {
-    //TODO: modify if should modify
     return sketchMetadata.color ??
         shapeMetadata.color ??
         lineMetadata.color ??
@@ -328,7 +311,6 @@ class DrawingController extends ChangeNotifier with EquatableMixin {
       );
   }
 
-  @override
   Map<String, dynamic> toMap() {
     return {
       'eraser': eraser.toMap(),
