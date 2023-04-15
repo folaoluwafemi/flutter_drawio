@@ -27,6 +27,3 @@ extension PointDoubleExtension on PointDouble {
     return {'x': x, 'y': y};
   }
 }
-
-
-

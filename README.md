@@ -19,7 +19,7 @@ Add it to your pubspec.yaml file under dependencies like so:
 
 ```yaml
 dependencies:
-  flutter_drawio: ^0.0.1
+  flutter_drawio: ^0.0.1+1
 ```
 
 or use commandline

@@ -1,6 +1,6 @@
 name: flutter_drawio
 description: A flutter package for drawing on a canvas with an api provided for serialization and deserialization of the drawn data.
-version: 0.0.1
+version: 0.0.1+1
 homepage: https://github.com/folaoluwafemi/flutter_drawio
 
 environment:
