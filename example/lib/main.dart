@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_drawer/flutter_drawer.dart';
 
-import 'change_notifier_builder.dart';
-
 void main() {
   runApp(const ExampleApp());
 }
@@ -48,7 +46,6 @@ class _ExamplePageState extends State<ExamplePage> {
     );
   }
 }
-
 
 // appBar: AppBar(
 // actions: [

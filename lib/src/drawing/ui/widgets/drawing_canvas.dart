@@ -116,10 +116,6 @@ class _DrawingCanvasState extends State<DrawingCanvas> {
   void panUpdate(DragUpdateDetails details) {
     if (isOutOfBounds(details.localPosition)) return;
 
-    final double speed = details.sourceTimeStamp != null
-        ? computeDragSpeed(details.delta.distance, details.sourceTimeStamp!)
-        : 0;
-
     final DrawingDelta delta = DrawingDelta(
       point: pointDoubleFromOffset(details.localPosition),
       operation: DrawingOperation.neutral,
@@ -132,10 +128,5 @@ class _DrawingCanvasState extends State<DrawingCanvas> {
   void initState() {
     if (!controller.initialized) controller.initialize();
     super.initState();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
   }
 }
