@@ -11,7 +11,7 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
-# flutter_drawer
+# drawer
 
 A flutter package for drawing on a canvas with an api provided for serialization and deserialization of the drawn data.
 
@@ -29,13 +29,13 @@ Add it to your pubspec.yaml file under dependencies like so:
 
 ```yaml
 dependencies:
-  flutter_drawer: ^0.0.1+1
+  drawer: ^0.0.1+1
 ```
 
 or use commandline
 
 ```bash
-flutter pub add flutter_drawer
+flutter pub add drawer
 ```
 
 then import it in your dart file

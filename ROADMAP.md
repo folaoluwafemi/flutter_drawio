@@ -1,6 +1,6 @@
-# Flutter Drawer Roadmap
+# Drawer Roadmap
 
-This document outlines the roadmap for the Flutter Drawer package.
+This document outlines the roadmap for the Drawer package.
 
 ## TODOs
 

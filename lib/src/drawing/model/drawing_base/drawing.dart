@@ -1,6 +1,6 @@
-import 'package:equatable/equatable.dart';
 import 'package:drawer/src/drawing/drawing_barrel.dart';
 import 'package:drawer/src/utils/utils_barrel.dart';
+import 'package:equatable/equatable.dart';
 
 part 'actionables/drawing_mode.dart';
 
@@ -32,7 +32,7 @@ abstract class Drawing with EquatableMixin {
         }
         return true;
       }(),
-      "Shape cannot be null when constructing a [ShapeDrawing] object",
+      'Shape cannot be null when constructing a [ShapeDrawing] object',
     );
     switch (T) {
       case ShapeDrawing:
