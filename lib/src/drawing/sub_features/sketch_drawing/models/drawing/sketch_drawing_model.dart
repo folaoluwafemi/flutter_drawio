@@ -1,7 +1,7 @@
 import 'package:flutter_drawio/src/drawing/drawing_barrel.dart';
 
 /// This class is used to represent a [Drawing] of type [DrawingType.sketch].
-class SketchDrawing extends Drawing {
+base class SketchDrawing extends Drawing {
   SketchDrawing({
     required super.deltas,
     super.metadata,

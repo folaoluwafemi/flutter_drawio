@@ -3,7 +3,7 @@ import 'package:flutter_drawio/src/drawing/drawing_barrel.dart';
 import 'package:flutter_drawio/src/utils/utils_barrel.dart';
 
 /// This class holds all the methods used to paint a [SketchDrawing] on a [Canvas].
-final class SketchPainter extends DrawingPainter<SketchDrawing> {
+base class SketchPainter extends DrawingPainter<SketchDrawing> {
   const SketchPainter();
 
   @override
