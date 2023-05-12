@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_drawio/src/drawing/drawing_barrel.dart';
 import 'package:flutter_drawio/src/utils/utils_barrel.dart';
 
+part 'canvases/primary_canvas.dart';
+
+part 'canvases/secondary_canvas.dart';
+
 class DrawingCanvas extends StatefulWidget {
   final DrawingController controller;
   final Size size;
@@ -32,13 +36,26 @@ class _DrawingCanvasState extends State<DrawingCanvas> {
           SizedBox(
             height: yDrawingBounds,
             width: xDrawingBounds,
+            child: _SecondaryCanvas(
+              controller: controller,
+              shapeDrawingPainter: const ShapePainter(),
+              sketchDrawingPainter: const SketchPainter(),
+            ),
+          ),
+          SizedBox(
+            height: yDrawingBounds,
+            width: xDrawingBounds,
             child: ChangeNotifierBuilder<DrawingController>(
               listenable: controller,
+              // ignore: invalid_use_of_protected_member
+              buildWhen: (previous, next) =>
+                  previous?.currentlyActiveDrawing !=
+                  next.currentlyActiveDrawing,
               key: UniqueKey(),
               builder: (_, controller) {
                 return CustomPaint(
                   key: const ValueKey('DrawingsCustomPaintKey'),
-                  painter: DrawingsPainter(
+                  painter: SecondaryDrawingsPainter(
                     shapeDrawingPainter: const ShapePainter(),
                     sketchDrawingPainter: const SketchPainter(),
                     drawings: controller.drawings,

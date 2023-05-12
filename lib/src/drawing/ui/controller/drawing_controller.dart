@@ -18,9 +18,19 @@ class DrawingController extends ChangeNotifier with EquatableMixin {
   }
 
   Drawings _drawings = [];
-  Drawing? currentlyActiveDrawing;
-
+  Drawing? _currentlyActiveDrawing;
   Drawings get drawings => List.from(_drawings);
+
+  @protected
+  Drawings get mutableDrawing => _drawings;
+
+  Drawing? get currentlyActiveDrawing => _currentlyActiveDrawing;
+
+  set currentlyActiveDrawing(Drawing? value) {
+    _currentlyActiveDrawing = value;
+    notifyListeners();
+  }
+
 
   final List<DrawingMode> _actionStack = List.from([]);
 
@@ -171,8 +181,8 @@ class DrawingController extends ChangeNotifier with EquatableMixin {
     if (delta.operation == DrawingOperation.start) {
       startDrawing();
     }
+    Drawing? drawing = currentlyActiveDrawing;
 
-    if (delta.operation == DrawingOperation.end) {}
     switch (drawingMode) {
       case DrawingMode.erase:
         eraser = eraser.copyWith(
@@ -182,16 +192,23 @@ class DrawingController extends ChangeNotifier with EquatableMixin {
         // notifyOfSignificantUpdate();
         break;
       case DrawingMode.sketch:
-        drawings = _sketch(delta, drawings);
+        drawing = _sketch(delta, drawing!);
         break;
       case DrawingMode.shape:
-        drawings = _drawShape(delta, drawings);
+        drawing = _drawShape(delta, drawing!);
         break;
       case DrawingMode.line:
-        drawings = _drawLine(delta, drawings);
+        drawing = _drawLine(delta, drawing!);
         break;
     }
-    changeDrawings(drawings);
+    //adds drawing if it's the last operation in the drawing, else updates the current drawing
+    if (delta.operation == DrawingOperation.end) {
+      drawings.add(drawing!);
+      currentlyActiveDrawing = null;
+      changeDrawings(drawings);
+    } else {
+      currentlyActiveDrawing = drawing;
+    }
   }
 
   void clearDrawings() {
@@ -203,13 +220,11 @@ class DrawingController extends ChangeNotifier with EquatableMixin {
     notifyListeners();
   }
 
-  Drawings _sketch(DrawingDelta delta, Drawings drawings) {
-    final Drawings sketchedDrawings = addDeltaToDrawings<SketchDrawing>(
-      delta,
-      drawings,
-      newMetadata: metadataFor(DrawingMode.sketch),
+  Drawing _sketch(DrawingDelta delta, Drawing drawing) {
+    drawing = drawing.copyWith(
+      deltas: List.from(drawing.deltas)..add(delta),
     );
-    return sketchedDrawings;
+    return drawing;
   }
 
   Drawings _erase(Eraser eraser, Drawings drawings) {
@@ -229,16 +244,14 @@ class DrawingController extends ChangeNotifier with EquatableMixin {
     return erasedDrawings;
   }
 
-  Drawings _drawLine(DrawingDelta delta, Drawings drawings) {
+  Drawing _drawLine(DrawingDelta delta, Drawing drawing) {
     // TODO: implement _drawLine
     throw UnimplementedError();
   }
 
-  Drawings _drawShape(DrawingDelta delta, Drawings drawings) {
-    final Drawings drawnDrawings = addDeltaToDrawings<ShapeDrawing>(
-      delta,
-      drawings,
-      newMetadata: metadataFor(DrawingMode.shape),
+  Drawing _drawShape(DrawingDelta delta, Drawing drawing) {
+    final Drawing drawnDrawings = drawing.copyWith(
+      deltas: List.from(drawing.deltas)..add(delta),
     );
     return drawnDrawings;
   }
