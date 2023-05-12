@@ -8,3 +8,9 @@
 - update readme
 - update documentation
 - update example app
+
+## 1.0.0
+
+- migrate project to dart 3.0
+- change class modifiers
+- fix [issue #1](https://github.com/folaoluwafemi/flutter_drawio/issues/1)
