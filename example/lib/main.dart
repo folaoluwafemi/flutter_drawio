@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_drawio/flutter_drawio.dart';
+
 import 'change_notifier_builder.dart';
 
 void main() {
@@ -63,7 +64,7 @@ class _ExamplePageState extends State<ExamplePage> {
               ),
             ),
           ),
-//add icon buttons for all the shapes
+          //add icon buttons for all the shapes
           IconButton(
             icon: const Icon(Icons.circle_outlined),
             onPressed: () => controller.changeShape(Shape.circle),

@@ -19,6 +19,7 @@ class DrawingController extends ChangeNotifier with EquatableMixin {
 
   Drawings _drawings = [];
   Drawing? _currentlyActiveDrawing;
+
   Drawings get drawings => List.from(_drawings);
 
   @protected
@@ -30,7 +31,6 @@ class DrawingController extends ChangeNotifier with EquatableMixin {
     _currentlyActiveDrawing = value;
     notifyListeners();
   }
-
 
   final List<DrawingMode> _actionStack = List.from([]);
 

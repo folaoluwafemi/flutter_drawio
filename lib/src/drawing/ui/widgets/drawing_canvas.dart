@@ -45,23 +45,10 @@ class _DrawingCanvasState extends State<DrawingCanvas> {
           SizedBox(
             height: yDrawingBounds,
             width: xDrawingBounds,
-            child: ChangeNotifierBuilder<DrawingController>(
-              listenable: controller,
-              // ignore: invalid_use_of_protected_member
-              buildWhen: (previous, next) =>
-                  previous?.currentlyActiveDrawing !=
-                  next.currentlyActiveDrawing,
-              key: UniqueKey(),
-              builder: (_, controller) {
-                return CustomPaint(
-                  key: const ValueKey('DrawingsCustomPaintKey'),
-                  painter: SecondaryDrawingsPainter(
-                    shapeDrawingPainter: const ShapePainter(),
-                    sketchDrawingPainter: const SketchPainter(),
-                    drawings: controller.drawings,
-                  ),
-                );
-              },
+            child: _PrimaryCanvas(
+              controller: controller,
+              shapeDrawingPainter: const ShapePainter(),
+              sketchDrawingPainter: const SketchPainter(),
             ),
           ),
           GestureDetector(

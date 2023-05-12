@@ -16,6 +16,8 @@ class _PrimaryCanvas extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierBuilder<DrawingController>(
       listenable: controller,
+      buildWhen: (previous, next) =>
+          previous?.currentlyActiveDrawing == next.currentlyActiveDrawing,
       builder: (context, value) => value.currentlyActiveDrawing == null
           ? const SizedBox.shrink()
           : CustomPaint(

@@ -18,7 +18,7 @@ class _SecondaryCanvas extends StatelessWidget {
       listenable: controller,
       buildWhen: (previous, next) =>
       // ignore: invalid_use_of_protected_member
-      previous?.mutableDrawing != next.mutableDrawing,
+      previous?.mutableDrawing == next.mutableDrawing,
       key: UniqueKey(),
       builder: (_, controller) {
         return CustomPaint(
