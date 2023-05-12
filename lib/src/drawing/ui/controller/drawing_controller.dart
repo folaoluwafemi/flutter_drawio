@@ -18,10 +18,25 @@ class DrawingController extends ChangeNotifier with EquatableMixin {
   }
 
   Drawings _drawings = [];
+  Drawing? currentlyActiveDrawing;
 
   Drawings get drawings => List.from(_drawings);
 
   final List<DrawingMode> _actionStack = List.from([]);
+
+  void startDrawing() {
+    currentlyActiveDrawing = switch (drawingMode) {
+      DrawingMode.shape => ShapeDrawing(
+          metadata: metadataFor(),
+          shape: shape,
+          deltas: [],
+        ),
+      _ => SketchDrawing(
+          metadata: metadataFor(),
+          deltas: [],
+        ),
+    };
+  }
 
   late DrawingMetadata lineMetadata;
   late DrawingMetadata shapeMetadata;
@@ -153,6 +168,9 @@ class DrawingController extends ChangeNotifier with EquatableMixin {
 
   void draw(DrawingDelta delta) {
     Drawings drawings = List.from(_drawings);
+    if (delta.operation == DrawingOperation.start) {
+      startDrawing();
+    }
 
     if (delta.operation == DrawingOperation.end) {}
     switch (drawingMode) {
