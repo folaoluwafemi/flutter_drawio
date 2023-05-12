@@ -3,7 +3,7 @@ import 'package:flutter_drawio/src/drawing/drawing_barrel.dart';
 import 'package:flutter_drawio/src/utils/utils_barrel.dart';
 
 /// This class holds the active methods for painting a [ShapeDrawing] object.
-class ShapePainter extends DrawingPainter<ShapeDrawing> {
+base class ShapePainter extends DrawingPainter<ShapeDrawing> {
   const ShapePainter();
 
   @override

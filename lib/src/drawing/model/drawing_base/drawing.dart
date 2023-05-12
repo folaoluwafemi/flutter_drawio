@@ -7,7 +7,7 @@ part 'actionables/drawing_mode.dart';
 part 'drawing_type.dart';
 
 /// This is the base class for all [Drawing] objects.
-abstract class Drawing with EquatableMixin {
+abstract base class Drawing with EquatableMixin {
   final List<DrawingDelta> deltas;
   final DrawingMetadata? metadata;
 

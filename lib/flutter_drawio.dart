@@ -18,5 +18,5 @@ export 'src/drawing/drawing_barrel.dart'
         EraseMode,
         Region,
         DrawingOperation,
-        DrawingsPainter,
+        SecondaryDrawingsPainter,
         DrawingCanvas;

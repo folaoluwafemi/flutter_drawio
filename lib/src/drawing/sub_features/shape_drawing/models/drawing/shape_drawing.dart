@@ -4,7 +4,7 @@ import 'package:flutter_drawio/src/drawing/model/drawing_model_barrel.dart'
     show Drawing, DrawingDelta, DrawingMetadata, DrawingType;
 
 /// This class is used to represent a [Drawing] of type [DrawingType.shape].
-class ShapeDrawing extends Drawing {
+base class ShapeDrawing extends Drawing {
   final Shape shape;
 
   ShapeDrawing({
