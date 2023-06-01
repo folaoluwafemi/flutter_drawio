@@ -168,6 +168,14 @@ class DrawingController extends ChangeNotifier with EquatableMixin {
     notifyListeners();
   }
 
+  void changeStrokeWidth(double strokeWidth) {
+    sketchMetadata = sketchMetadata.copyWith(strokeWidth: strokeWidth);
+    shapeMetadata = shapeMetadata.copyWith(strokeWidth: strokeWidth);
+    lineMetadata = lineMetadata.copyWith(strokeWidth: strokeWidth);
+
+    notifyListeners();
+  }
+
   void changeEraseMode(EraseMode mode) {
     if (eraser.mode == mode) return;
     eraser = eraser.copyWith(mode: mode);
