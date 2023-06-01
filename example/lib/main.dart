@@ -54,13 +54,17 @@ class _ExamplePageState extends State<ExamplePage> {
           ChangeNotifierBuilder(
             listenable: controller,
             builder: (context, controller) => IconButton(
-              icon: controller.drawingMode == DrawingMode.sketch
-                  ? const Icon(Icons.format_shapes)
-                  : const Icon(Icons.brush),
+              icon: switch (controller.drawingMode) {
+                DrawingMode.line => const Icon(Icons.shape_line),
+                DrawingMode.shape => const Icon(Icons.format_shapes),
+                _ => const Icon(Icons.brush),
+              },
               onPressed: () => controller.changeDrawingMode(
-                controller.drawingMode == DrawingMode.sketch
-                    ? DrawingMode.shape
-                    : DrawingMode.sketch,
+                switch (controller.drawingMode) {
+                  DrawingMode.line => DrawingMode.sketch,
+                  DrawingMode.shape => DrawingMode.line,
+                  _ => DrawingMode.shape,
+                },
               ),
             ),
           ),

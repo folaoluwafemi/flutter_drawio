@@ -38,6 +38,7 @@ class _DrawingCanvasState extends State<DrawingCanvas> {
             width: xDrawingBounds,
             child: _SecondaryCanvas(
               controller: controller,
+              lineDrawingPainter: const LineDrawingPainter(),
               shapeDrawingPainter: const ShapePainter(),
               sketchDrawingPainter: const SketchPainter(),
             ),
@@ -47,6 +48,7 @@ class _DrawingCanvasState extends State<DrawingCanvas> {
             width: xDrawingBounds,
             child: _PrimaryCanvas(
               controller: controller,
+              lineDrawingPainter: const LineDrawingPainter(),
               shapeDrawingPainter: const ShapePainter(),
               sketchDrawingPainter: const SketchPainter(),
             ),

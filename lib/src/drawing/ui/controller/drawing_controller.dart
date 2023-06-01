@@ -41,6 +41,10 @@ class DrawingController extends ChangeNotifier with EquatableMixin {
           shape: shape,
           deltas: [],
         ),
+      DrawingMode.line => LineDrawing(
+          deltas: [],
+          metadata: metadataFor(),
+        ),
       _ => SketchDrawing(
           metadata: metadataFor(),
           deltas: [],
@@ -53,6 +57,8 @@ class DrawingController extends ChangeNotifier with EquatableMixin {
   late DrawingMetadata sketchMetadata;
   late Shape shape;
 
+  /// this method is for to get metadata according to the current or last valid
+  /// drawing mode
   DrawingMetadata metadataFor([DrawingMode? mode]) {
     switch (_actionStack.lastOrNull) {
       case DrawingMode.erase:
@@ -61,9 +67,7 @@ class DrawingController extends ChangeNotifier with EquatableMixin {
             (element) => element != DrawingMode.erase,
           );
           if (lastNonEraseMode == null) return sketchMetadata;
-          return metadataFor(
-            lastNonEraseMode,
-          );
+          return metadataFor(lastNonEraseMode);
         }
       case DrawingMode.sketch:
         return sketchMetadata;
@@ -162,6 +166,14 @@ class DrawingController extends ChangeNotifier with EquatableMixin {
     notifyListeners();
   }
 
+  void changeStrokeWidth(double strokeWidth) {
+    sketchMetadata = sketchMetadata.copyWith(strokeWidth: strokeWidth);
+    shapeMetadata = shapeMetadata.copyWith(strokeWidth: strokeWidth);
+    lineMetadata = lineMetadata.copyWith(strokeWidth: strokeWidth);
+
+    notifyListeners();
+  }
+
   void changeEraseMode(EraseMode mode) {
     if (eraser.mode == mode) return;
     eraser = eraser.copyWith(mode: mode);
@@ -189,14 +201,30 @@ class DrawingController extends ChangeNotifier with EquatableMixin {
           region: eraser.region.copyWith(centre: delta.point),
         );
         drawings = _erase(eraser, drawings);
-        // notifyOfSignificantUpdate();
         break;
       case DrawingMode.sketch:
         drawing = _sketch(delta, drawing!);
         break;
       case DrawingMode.shape:
-        drawing = _drawShape(delta, drawing!);
-        break;
+        {
+          if (delta.operation == DrawingOperation.end) {
+            drawing = drawing!.copyWith(
+              deltas: List.from(drawing.deltas)
+                ..replaceRange(
+                  drawing.deltas.lastIndex,
+                  drawing.deltas.lastIndex,
+                  [
+                    drawing.deltas.last.copyWith(
+                      operation: DrawingOperation.end,
+                    )
+                  ],
+                ),
+            );
+            break;
+          }
+          drawing = _drawShape(delta, drawing!);
+          break;
+        }
       case DrawingMode.line:
         drawing = _drawLine(delta, drawing!);
         break;
@@ -245,8 +273,10 @@ class DrawingController extends ChangeNotifier with EquatableMixin {
   }
 
   Drawing _drawLine(DrawingDelta delta, Drawing drawing) {
-    // TODO: implement _drawLine
-    throw UnimplementedError();
+    drawing = drawing.copyWith(
+      deltas: List.from(drawing.deltas)..add(delta),
+    );
+    return drawing;
   }
 
   Drawing _drawShape(DrawingDelta delta, Drawing drawing) {
