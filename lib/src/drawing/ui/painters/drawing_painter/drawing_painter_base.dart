@@ -3,7 +3,7 @@ import 'package:flutter_drawio/src/drawing/drawing_barrel.dart';
 
 /// This is the base class for all [DrawingPainter]s.
 ///
-/// if you wish to add a painter to the [SecondaryDrawingsPainter] you must extend this class.
+/// if you wish to add a painter to the [DrawingsPainter] you must extend this class.
 abstract base class DrawingPainter<T extends Drawing> {
   const DrawingPainter();
 
