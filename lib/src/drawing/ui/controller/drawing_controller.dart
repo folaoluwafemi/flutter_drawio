@@ -41,6 +41,10 @@ class DrawingController extends ChangeNotifier with EquatableMixin {
           shape: shape,
           deltas: [],
         ),
+      DrawingMode.line => LineDrawing(
+          deltas: [],
+          metadata: metadataFor(),
+        ),
       _ => SketchDrawing(
           metadata: metadataFor(),
           deltas: [],
@@ -53,6 +57,8 @@ class DrawingController extends ChangeNotifier with EquatableMixin {
   late DrawingMetadata sketchMetadata;
   late Shape shape;
 
+  /// this method is for to get metadata according to the current or last valid
+  /// drawing mode
   DrawingMetadata metadataFor([DrawingMode? mode]) {
     switch (_actionStack.lastOrNull) {
       case DrawingMode.erase:
@@ -245,8 +251,10 @@ class DrawingController extends ChangeNotifier with EquatableMixin {
   }
 
   Drawing _drawLine(DrawingDelta delta, Drawing drawing) {
-    // TODO: implement _drawLine
-    throw UnimplementedError();
+    drawing = drawing.copyWith(
+      deltas: List.from(drawing.deltas)..add(delta),
+    );
+    return drawing;
   }
 
   Drawing _drawShape(DrawingDelta delta, Drawing drawing) {
