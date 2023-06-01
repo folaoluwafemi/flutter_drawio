@@ -206,8 +206,25 @@ class DrawingController extends ChangeNotifier with EquatableMixin {
         drawing = _sketch(delta, drawing!);
         break;
       case DrawingMode.shape:
-        drawing = _drawShape(delta, drawing!);
-        break;
+        {
+          if (delta.operation == DrawingOperation.end) {
+            drawing = drawing!.copyWith(
+              deltas: List.from(drawing.deltas)
+                ..replaceRange(
+                  drawing.deltas.lastIndex,
+                  drawing.deltas.lastIndex,
+                  [
+                    drawing.deltas.last.copyWith(
+                      operation: DrawingOperation.end,
+                    )
+                  ],
+                ),
+            );
+            break;
+          }
+          drawing = _drawShape(delta, drawing!);
+          break;
+        }
       case DrawingMode.line:
         drawing = _drawLine(delta, drawing!);
         break;

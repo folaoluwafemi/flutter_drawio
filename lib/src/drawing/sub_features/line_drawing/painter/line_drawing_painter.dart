@@ -18,7 +18,7 @@ base class LineDrawingPainter extends DrawingPainter<LineDrawing> {
     final DrawingDelta firstDelta = drawing.deltas.firstWhere(
       (element) => element.operation == DrawingOperation.start,
     );
-    final DrawingDelta latestDelta = drawing.deltas.firstWhere(
+    final DrawingDelta latestDelta = drawing.deltas.lastWhere(
       (element) => element.operation == DrawingOperation.neutral,
     );
 
