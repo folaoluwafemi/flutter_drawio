@@ -9,7 +9,7 @@ This document outlines the roadmap for the flutter_drawio package.
 - [x] implement drawing shapes (star, circle, square, triangle)
 - [ ] implement line drawing
     - tag: `line-drawing`
-    - status: `pending`
+    - status: `in-progress` (see `line-drawing` branch)
 - [ ] add support for undo and redo
     - tag: `undo-redo`
     - status: `pending`
