@@ -67,9 +67,7 @@ class DrawingController extends ChangeNotifier with EquatableMixin {
             (element) => element != DrawingMode.erase,
           );
           if (lastNonEraseMode == null) return sketchMetadata;
-          return metadataFor(
-            lastNonEraseMode,
-          );
+          return metadataFor(lastNonEraseMode);
         }
       case DrawingMode.sketch:
         return sketchMetadata;
