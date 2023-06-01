@@ -201,7 +201,6 @@ class DrawingController extends ChangeNotifier with EquatableMixin {
           region: eraser.region.copyWith(centre: delta.point),
         );
         drawings = _erase(eraser, drawings);
-        // notifyOfSignificantUpdate();
         break;
       case DrawingMode.sketch:
         drawing = _sketch(delta, drawing!);
