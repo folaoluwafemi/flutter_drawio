@@ -11,7 +11,8 @@ of the drawn data.
 - supports erase by area or drawing
 - serialization and deserialization of drawn data
 
-[video example here](https://user-images.githubusercontent.com/89414401/232181623-b4e9f934-e8fd-4fe5-889b-30c589c6b4f6.mov)
+[video example here](https://github.com/folaoluwafemi/flutter_drawio/assets/89414401/e676d791-25e3-4818-a8cb-1994dd0ffca4)
+
 
 ## Getting started
 
