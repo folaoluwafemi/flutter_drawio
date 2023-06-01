@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_drawio/src/drawing/drawing_barrel.dart';
 
+/// This class holds the active methods for painting a [LineDrawing] object.
 base class LineDrawingPainter extends DrawingPainter<LineDrawing> {
   const LineDrawingPainter();
 

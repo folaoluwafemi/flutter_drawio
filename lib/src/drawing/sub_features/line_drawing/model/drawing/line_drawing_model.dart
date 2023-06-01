@@ -1,4 +1,5 @@
-import 'package:flutter_drawio/src/drawing/drawing_barrel.dart';
+import 'package:flutter_drawio/src/drawing/drawing_barrel.dart'
+    show Drawing, DrawingDelta, DrawingMetadata, DrawingType;
 
 /// This class is used to represent a [Drawing] of type [DrawingType.line].
 base class LineDrawing extends Drawing {
