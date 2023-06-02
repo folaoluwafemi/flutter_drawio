@@ -7,9 +7,9 @@ This document outlines the roadmap for the flutter_drawio package.
 - [x] add support for loading a `Drawing` from a file.
 - [x] add support for saving a `Drawing` to a file.
 - [x] implement drawing shapes (star, circle, square, triangle)
-- [ ] implement line drawing
+- [x] implement line drawing
     - tag: `line-drawing`
-    - status: `in-progress` (see `line-drawing` branch)
+    - status: `done` (see `line-drawing` branch)
 - [ ] add support for undo and redo
     - tag: `undo-redo`
     - status: `pending`
